@@ -36,7 +36,7 @@ public class LinearRegressionModel {
     }
 
      // Method to suggest workouts based on predicted difficulty rating
-    public List<Workout> suggestWorkouts(double experienceLevel, List<Workout> allWorkouts) {
+    public List<Workout> suggestWorkouts(Double experienceLevel, List<Workout> allWorkouts) {
         List<Workout> suggestedWorkouts = new ArrayList<>();
         double predictedRating = predict(experienceLevel);
 
