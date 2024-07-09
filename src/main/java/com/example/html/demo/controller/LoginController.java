@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Calorie_TrackerController {
+public class LoginController {
 
-    @GetMapping("/calorie_tracker")
-    public String calorieTracker(){
-        return "calorie_tracker";
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
     }
 
 }

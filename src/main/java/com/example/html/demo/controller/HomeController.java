@@ -16,18 +16,21 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/home")
-    public String postMethodName(@ModelAttribute User user, Model model) {
-        System.out.println(user.toString());
-        user = userRepository.save(user);
-        model.addAttribute("username", user.getUsername());
+    
 
-        return "home";
-    }
+    // @PostMapping("/home")
+    // public String postMethodName(@ModelAttribute User user, Model model) {
+    //     System.out.println(user.toString());
+    //     user = userRepository.save(user);
+    //     model.addAttribute("username", user.getUsername());
+    //     return "home";
+    // }
     
 
     @GetMapping("/home")
     public String home(@ModelAttribute User user, Model model){
         return "home";
     }
+
+    
 }

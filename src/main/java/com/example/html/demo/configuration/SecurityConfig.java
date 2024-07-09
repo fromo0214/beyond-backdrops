@@ -1,0 +1,91 @@
+package com.example.html.demo.configuration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
+
+import com.example.html.demo.service.MyUserDetailsService;
+
+//Spring Security configuration to add user authentication in the back-end.
+
+
+@Configuration //spring boot bean
+@EnableWebSecurity //controls debugging support w/ spring security
+public class SecurityConfig{
+
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+
+    @Bean
+    public SecurityContextRepository securityContextRepository(){
+        HttpSessionSecurityContextRepository repository = new HttpSessionSecurityContextRepository();
+        repository.setAllowSessionCreation(true);
+        return repository;
+    }
+
+    @Bean
+    //httpsecurity object is used to configure security for HTTP requests 
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        http
+        .authorizeHttpRequests((requests) -> requests
+            .requestMatchers("/login","/register", "/css/**", "/js/**", "/images/**", "/h2/**").permitAll() // Allow public access to registration and static resources
+            .anyRequest().authenticated()                                               //allows users without accounts to access the /register url
+        )                                                                               // and css/js resources from the template, .permitall() allows access to urls without
+                                                                                        // authentication
+        .formLogin((form) -> form   //configures form based log in
+            .loginPage("/login") //specifies the custom log in url
+            .successHandler(customAuthenticationSuccessHandler)
+            // .defaultSuccessUrl("/home", true) //redirect to /home upon successful login
+            .permitAll() //allows all access to the url without authentication 
+        )
+        .logout((logout) -> logout //configures a log out functionality
+            .permitAll()
+        )
+        .csrf((csrf) -> csrf
+        .ignoringRequestMatchers("/h2/**") //used to be able to access h2 database
+        )
+        .headers((header) -> header
+            .frameOptions((frameOptions) -> frameOptions.disable())
+        )
+        .sessionManagement((session) -> session
+            .sessionFixation().migrateSession()
+        )
+        .securityContext((securityContext) -> securityContext
+            .securityContextRepository(new HttpSessionSecurityContextRepository())
+        );
+        
+    return http.build(); //builds and returns the 'SecurityFilterChain'
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+      @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(myUserDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    //with the authentication manager it gives users the authority to access the home page upon creating an account 
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+}
