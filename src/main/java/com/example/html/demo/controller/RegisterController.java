@@ -54,6 +54,6 @@ public class RegisterController {
         System.out.println("Current user: " + SecurityContextHolder.getContext().getAuthentication().getName());
 
 
-        return "redirect:/home";
+        return "redirect:/login?registered=true";
     }
 }

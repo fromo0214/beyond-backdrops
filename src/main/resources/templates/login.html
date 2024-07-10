@@ -2,8 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
+    <script>
+        function showMessages() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('registered')) {
+                alert("Registration complete! Please log in to continue.");
+            }
+
+            if(urlParams.has('logout')){
+                alert("You have been logged out successfully.")
+            }
+        }
+
+    </script>
 </head>
-<body>
+<body onload="showMessages()">
     <h1>Login</h1>
     <form th:action="@{/login}" method="post">
         <div>
@@ -17,10 +30,10 @@
         <div>
             <button type="submit">Login</button>
         </div>
-        <p>Don't have an account?<a th:href="@{/register}" class="register-link"> Register</a></p>
         <div th:if="${param.error}">
             <p style="color: red;">Invalid username or password.</p>
         </div>
     </form>
+    <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
 </body>
 </html>
