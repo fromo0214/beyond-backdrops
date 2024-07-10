@@ -1,6 +1,8 @@
 package com.example.html.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +18,12 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    
-
-    // @PostMapping("/home")
-    // public String postMethodName(@ModelAttribute User user, Model model) {
-    //     System.out.println(user.toString());
-    //     user = userRepository.save(user);
-    //     model.addAttribute("username", user.getUsername());
-    //     return "home";
-    // }
-    
-
+        
     @GetMapping("/home")
     public String home(@ModelAttribute User user, Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        model.addAttribute("username", username);
         return "home";
     }
 
