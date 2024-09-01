@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Beyond-Backdrops</title>
+	<title>Beyond Backdrops</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="Yaowei Lei">
@@ -33,21 +33,21 @@
 <div class="nav nav-overlay">
 	<div class="nav__content">
 		<ul class="nav__list">
-			<li class="nav__list-item active-nav"><a href="home.html" class="hover-target">Home</a></li>
-			<li class="nav__list-item"><a href="profile.html" class="hover-target"> 
-				<span class="main-logo"> <img src="images/chocolat/profile-modified.png" alt="image" width=5%> </span> Porfile </a>
+			<li class="nav__list-item"><a th:href="@{/home}" class="hover-target">Home</a></li>
+			<li class="nav__list-item actice-nav"><a th:href="@{/profile}" class="hover-target"> 
+				<span class="main-logo"> <img src="images/chocolat/profile-modified.png" alt="image" width=5%> </span> Profile </a>
 			</li>
 			<li class="nav__list-item"><a href="uploads.html" class="hover-target"> 
 				<span class="main-logo"> <img src="images/chocolat/upload-modified.png" alt="image" width=5%> </span> Uploads </a>
 			</li>
-			<li class="nav__list-item"><a href="collection.html" class="hover-target"> 
+			<li class="nav__list-item"><a th:href="@{/collection}" class="hover-target"> 
 				<span class="main-logo"> <img src="images/chocolat/collection-modified.png" alt="image" width=4%> </span> Collection </a>
 			</li>
 			<li class="nav__list-item"><a href="comments.html" class="hover-target"> 
 				<span class="main-logo"> <img src="images/chocolat/comment-modified.png" alt="image" width=4%> </span> Comments </a>
 			</li>
 			<hr>
-			<li class="nav__list-item"><a href="index.html" class="hover-target"> Logout </a></li>
+			<li class="nav__list-item"><a th:href="@{/home}" class="hover-target"> Logout </a></li>
 		</ul>
 	</div>
 </div>

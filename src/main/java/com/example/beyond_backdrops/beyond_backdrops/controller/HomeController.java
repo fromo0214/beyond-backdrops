@@ -27,6 +27,7 @@ public class HomeController {
         User user = userRepository.findByUsername(username);
 
         if(user != null){
+            model.addAttribute("username", username);
             return "home";
         }
 

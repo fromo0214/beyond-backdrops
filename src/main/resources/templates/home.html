@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="Yaowei Lei">
 
+    <link rel="icon" href="images/beyond-logo.png" type="images/png" />
+
+
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/vendor.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -32,21 +35,21 @@
   <div class="nav nav-overlay">
   	<div class="nav__content">
   		<ul class="nav__list">
-  			<li class="nav__list-item active-nav"><a href="home.html" class="hover-target">Home</a></li>
-  			<li class="nav__list-item"><a href="profile.html" class="hover-target"> 
+  			<li class="nav__list-item active-nav"><a th:href="@{/home}" class="hover-target">Home</a></li>
+  			<li class="nav__list-item"><a th:href="@{/profile}" class="hover-target"> 
   				<span class="main-logo"> <img src="images/chocolat/profile-modified.png" alt="image" width=5%> </span> Profile </a>
   			</li>
   			<li class="nav__list-item"><a href="uploads.html" class="hover-target"> 
   				<span class="main-logo"> <img src="images/chocolat/upload-modified.png" alt="image" width=5%> </span> Uploads </a>
   			</li>
-  			<li class="nav__list-item"><a href="collection.html" class="hover-target"> 
+  			<li class="nav__list-item"><a th:href="@{/collection}" class="hover-target"> 
   				<span class="main-logo"> <img src="images/chocolat/collection-modified.png" alt="image" width=4%> </span> Collection </a>
   			</li>
   			<li class="nav__list-item"><a href="comments.html" class="hover-target"> 
   				<span class="main-logo"> <img src="images/chocolat/comment-modified.png" alt="image" width=4%> </span> Comments </a>
   			</li>
   			<hr>
-  			<li class="nav__list-item"><a href="index.html" class="hover-target"> Logout </a></li>
+  			<li class="nav__list-item"><a class="hover-target" th:action="@{/logout}" method="post" style="display: inline;"> Logout </a></li>
   		</ul>
   	</div>
   </div>
@@ -55,10 +58,10 @@
 		<div id="header-wrap">
 			<nav id="navbar">
 				<div class="main-logo">
-					<a href="home.html">Beyond-Backdrops.</a>
+					<a th:href="@{/home}">Beyond Backdrops</a>
 				</div>
 				<div class="profile-top-bar">
-					<a href="profile.html"> User_Name </a>
+					<a th:href="@{/profile}" th:text="${username}">username</a>
 				</div> 
 				<div class="action-menu">
 				  <input id="menu-toggle" type="checkbox" />
