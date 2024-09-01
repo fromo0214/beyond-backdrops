@@ -1,5 +1,7 @@
 package com.example.beyond_backdrops.beyond_backdrops.Model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,10 +23,19 @@ public class User {
 
     private String password;
 
+    private Long profileViews;
+
+    private Long favorites;
+
+    private Long uploads;
+
+    private LocalDate dateJoined;
+
+    private String userDesc;
+
     public User(){
         
     }
-
 
     public Long getId() {
         return id;
@@ -58,6 +69,64 @@ public class User {
         this.password = password;
     }
 
+
+    public Long getProfileViews() {
+        return profileViews;
+    }
+
+
+    public void setProfileViews(Long profileViews) {
+        this.profileViews = profileViews;
+    }
+
+
+    public Long getFavorites() {
+        return favorites;
+    }
+
+
+    public void setFavorites(Long favorites) {
+        this.favorites = favorites;
+    }
+
+
+    public Long getUploads() {
+        return uploads;
+    }
+
+
+    public void setUploads(Long uploads) {
+        this.uploads = uploads;
+    }
+
+
+    public LocalDate getDateJoined() {
+        return dateJoined;
+    }
+
+
+    public void setDateJoined(LocalDate dateJoined) {
+        this.dateJoined = dateJoined;
+    }
+
+
+
+
+
+    public String getUserDesc() {
+        return userDesc;
+    }
+
+
+
+
+
+    public void setUserDesc(String userDesc) {
+        this.userDesc = userDesc;
+    }
+
+
+    
     
 
 }

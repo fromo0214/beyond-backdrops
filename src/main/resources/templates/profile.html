@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
 	<title>Beyond Backdrops</title>
     <meta charset="utf-8">
@@ -56,10 +56,10 @@
 		<div id="header-wrap">
 			<nav id="navbar">
 				<div class="main-logo">
-					<a href="home.html">Beyond-Backdrops.</a>
+					<a th:href="@{/home}">Beyond Backdrops</a>
 				</div>
 				<div class="profile-top-bar">
-					<a href="profile.html"> User_Name </a>
+					<a th:href="@{/profile}" th:text="${username}">username</a>
 				</div> 
 				<div class="action-menu">
 				  <input id="menu-toggle" type="checkbox" />
@@ -77,9 +77,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">			
-						<h1 class="page-title"> <span class="main-logo"> <img src="images/chocolat/user-modified.png" alt="image" width=10%> </span> User_Name</h1>
+						<h1 class="page-title" th:text="${username}"> <span class="main-logo"> <img src="images/chocolat/user-modified.png" alt="image" width=10%> </span>username</h1>
 						<div class="breadcrumbs">
-							<span class="item"><a href="index.html">Home /</a></span>
+							<span class="item"><a th:href="@{/home}">Home /</a></span>
 							<span class="item"> Profile </span>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 
 	<section id="profile" class="scrollspy-section padding-large">
 		<div class="container">
-			
+			<form th:action="@{/profile}" th:object="${user}" method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-12">
 					
@@ -103,16 +103,8 @@
 									<div class="post-content">	
 											<h2 class="post-title"><a>User Description</a></h2>
 											<hr>
-											<p>As a photographer, I am an artist of the ephemeral, 
-												capturing fleeting moments and crystallizing them into eternal memories. 
-												My lens is my brush, the world my canvas, 
-												and light my paint. With a keen eye for detail and a passion for storytelling, 
-												I seek to reveal the extraordinary in the ordinary. 
-												Each photograph I take is a testament to life’s vibrant tapestry, 
-												a single frame that speaks volumes of the beauty and complexity around us. 
-												Whether it’s the subtle interplay of shadows and light or the candid expressions of life’s unguarded moments, 
-												my mission is to frame the world not as it is, but as it feels – one click at a time.
-											</p>
+											<input type="text" th:field="*{userDesc}">
+											<button class="fieldset" type="submit"><i class="far fa-fw fa-check"></i>Update</button>
 									</div>
 								</article>
 	
@@ -123,12 +115,10 @@
 									<div class="post-content">		
 											<h2 class="post-title"><a>User Information</a></h2>
 											<hr>
-											<p class="list-unstyled colored-blu">Last Active <span class="align-right"> 6 seconds ago </span> </p>
-											<p class="list-unstyled colored-blu">Joined <span class="align-right"> 3 hours ago </span> </p> 
-											<p class="list-unstyled colored-blu">Uploads <span class="align-right"> 61 </span> </p> 
-											<p class="list-unstyled colored-blu">Favorites <span class="align-right"> 113 </span> </p> 
-											<p class="list-unstyled colored-blu">Profile Views <span class="align-right"> 82 </span> </p>
-											<p class="list-unstyled colored-blu">Profile Comments <span class="align-right"> 42 </span> </p>   
+											<p class="list-unstyled colored-blu" >Joined <span class="align-right" th:text="${dateJoined}">dateJoined</span> </p> 
+											<p class="list-unstyled colored-blu" >Uploads <span class="align-right" th:text="${uploads}">uploads</span> </p> 
+											<p class="list-unstyled colored-blu" >Favorites <span class="align-right" th:text="${favorites}">favorites</span> </p> 
+											<p class="list-unstyled colored-blu" >Profile Views<span class="align-right" th:text="${profileViews}">profileViews</span> </p>
 									</div>
 								</article>
 							</div>
@@ -140,9 +130,9 @@
 											<hr>
 											<p class="list-unstyled colored-blu">API Key <span class="align-right"> SjsdASJsaoASjSASAdkePlf </span> </p>
 											<hr>
-											<p class="list-unstyled colored-blu">User Name <span class="align-right"> User_Name </span> </p>
+											<p class="list-unstyled colored-blu">User Name <span class="align-right" th:text="${username}">username</span> </p>
 											<hr> 
-											<p class="list-unstyled colored-blu">E-Mail <span class="align-right"> example@gmail.com </span> </p>
+											<p class="list-unstyled colored-blu">E-Mail <span class="align-right" th:text="${email}">email</span> </p>
 											<hr>
 											<p class="list-unstyled colored-blu">Password <span class="align-right"> ************* </span> </p>   
 									</div>
@@ -181,7 +171,7 @@
 				</div>
 	
 			</div>
-	
+		</form>
 		</div>
 	</section>
 

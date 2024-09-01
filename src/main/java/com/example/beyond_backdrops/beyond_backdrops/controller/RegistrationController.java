@@ -1,5 +1,8 @@
 package com.example.beyond_backdrops.beyond_backdrops.controller;
 
+import java.time.LocalDate;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,10 +40,13 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public String postMethodName(@ModelAttribute User user, Model model) {
-        //TODO: process POST request
-
         String rawPassword = user.getPassword();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setDateJoined(LocalDate.now());
+        user.setProfileViews(0L);
+        user.setUploads(0L);
+        user.setFavorites(0L);
+        user.setUserDesc("");
         userService.saveUser(user);
 
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(user.getUsername(), rawPassword);
