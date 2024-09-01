@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<title>Beyond Backdrops</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Yaowei Lei">
+
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body class="bg-black light">
+	<div class="preloader">
+	<svg>
+	  <g>
+	    <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+	  </g>
+	  <g>
+	    <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+	  </g>
+	  <defs>
+	    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+	      <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1" />
+	      <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1" />
+	    </linearGradient>
+	  </defs>
+	</svg>
+  </div>
+
+  <div class="nav nav-overlay">
+  	<div class="nav__content">
+  		<ul class="nav__list">
+  			<li class="nav__list-item active-nav"><a href="home.html" class="hover-target">Home</a></li>
+  			<li class="nav__list-item"><a href="profile.html" class="hover-target"> 
+  				<span class="main-logo"> <img src="images/chocolat/profile-modified.png" alt="image" width=5%> </span> Profile </a>
+  			</li>
+  			<li class="nav__list-item"><a href="uploads.html" class="hover-target"> 
+  				<span class="main-logo"> <img src="images/chocolat/upload-modified.png" alt="image" width=5%> </span> Uploads </a>
+  			</li>
+  			<li class="nav__list-item"><a href="collection.html" class="hover-target"> 
+  				<span class="main-logo"> <img src="images/chocolat/collection-modified.png" alt="image" width=4%> </span> Collection </a>
+  			</li>
+  			<li class="nav__list-item"><a href="comments.html" class="hover-target"> 
+  				<span class="main-logo"> <img src="images/chocolat/comment-modified.png" alt="image" width=4%> </span> Comments </a>
+  			</li>
+  			<hr>
+  			<li class="nav__list-item"><a href="index.html" class="hover-target"> Logout </a></li>
+  		</ul>
+  	</div>
+  </div>
+
+	<header id="header" class="light">
+		<div id="header-wrap">
+			<nav id="navbar">
+				<div class="main-logo">
+					<a href="home.html">Beyond-Backdrops.</a>
+				</div>
+				<div class="profile-top-bar">
+					<a href="profile.html"> User_Name </a>
+				</div> 
+				<div class="action-menu">
+				  <input id="menu-toggle" type="checkbox" />
+					<label class="menu-btn" for="menu-toggle">
+					<span></span>
+				   </label>
+				</div><!--action-menu-->
+			</nav>
+		</div><!--header-wrap-->
+	</header>
+
+	<div id="billboard">
+    <div class="container">
+      <div class="row">
+        <div class="billboard-content d-flex mt-6 align-center">
+          
+          <div class="light text-center">
+            <div class="button-container d-flex justify-content-center mt-5">
+              <input class="checkbox" type="search" name="q" id="search-text" placeholder="Search..." >
+              <button class="btn btn-image"> 
+                <img src="images/chocolat/search-modified.png" alt="image">
+              </button>
+            </div>
+
+            <div class="button-container d-flex justify-content-center mt-5">
+              <a href="#" class="btn btn-pill btn-large btn-outline-light mr-3"><span>Resolution</span><i class="icon icon-arrow-down2"></i></a>
+              <a href="#" class="btn btn-pill btn-large btn-outline-light mr-3"><span>Ratio</span><i class="icon icon-arrow-down2"></i></a>
+              <a href="#" class="btn btn-pill btn-large btn-outline-light mr-3"><span>Color</span><i class="icon icon-arrow-down2"></i></a>
+              <a href="#" class="btn btn-pill btn-large btn-outline-light mr-3"><span>Date Added</span><i class="icon icon-arrow-down2"></i></a>
+            </div><!--button-box-->
+          </div><!--text-content-->
+  
+
+          <div class="social-links">
+            <ul class="list-unstyled d-flex">
+              <li class="mr-3"><a href="#"><i class="icon icon-facebook m-1"></i></a></li>
+              <li class="mr-3"><a href="#"><i class="icon icon-instagram m-1"></i></a></li>
+              <li class="mr-3"><a href="#"><i class="icon icon-behance m-1"></i></a></li>
+              <li><a href="#"><i class="icon icon-pinterest-p m-1"></i></a></li>
+            </ul>
+          </div><!--social-links-->
+        </div>
+      </div>
+    </div>
+  </div><!--billboard-->
+
+	
+  <div id="display">
+    <section class="portfolio-wrap fancyboxeffect light padding-medium">
+      <div class="d-flex flex-wrap col-md-12">
+        <div class="portfolio-container-2">
+              <div>
+                <a class="image-link" href="images/image1.jpg" >
+                  <img src="images/image1.jpg" alt="image" class="galleryImg" width="400">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image2.jpg">
+                  <img src="images/image2.jpg" alt="image" class="galleryImg" width="432px">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image3.jpg">
+                  <img src="images/image3.jpg" alt="image" class="galleryImg" width="432px">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image4.jpg">
+                  <img src="images/image4.jpg" alt="image" class="galleryImg" width="432px">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image5.jpg">
+                  <img src="images/image5.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image6.jpg">
+                  <img src="images/image6.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image7.jpg">
+                  <img src="images/image7.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image8.jpg">
+                  <img src="images/image8.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+    
+              <div>
+                <a class="image-link" href="images/image9.jpg">
+                  <img src="images/image9.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image10.jpg">
+                  <img src="images/image10.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image11.jpg">
+                  <img src="images/image11.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image12.jpg">
+                  <img src="images/image12.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image13.jpg">
+                  <img src="images/image13.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image14.jpg">
+                  <img src="images/image14.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>
+              <div>
+                <a class="image-link" href="images/image15.jpg">
+                  <img src="images/image15.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image16.jpg">
+                  <img src="images/image16.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image17.jpg">
+                  <img src="images/image17.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image18.jpg">
+                  <img src="images/image18.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image19.jpg">
+                  <img src="images/image19.jpg" alt="image" class="galleryImg">
+                </a>
+              </div>                       
+              <div>
+                <a class="image-link" href="images/image20.jpg">
+                  <img src="images/image20.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image21.jpg">
+                  <img src="images/image21.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image22.jpg">
+                  <img src="images/image22.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image23.jpg">
+                  <img src="images/image23.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image24.jpg">
+                  <img src="images/image24.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image25.jpg">
+                  <img src="images/image25.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+              <div>
+                <a class="image-link" href="images/image26.jpg">
+                  <img src="images/image26.jpg" alt="image" class="galleryImg">
+                </a>
+              </div> 
+            </div>
+      </div>
+      <div class="pix_btn btn-click text-center">
+        <a href="#" class="btn btn-pill btn-large btn-outline-light mr-3"><span>Load more</span> 
+        <i class="icon icon-arrow-thin-right"></i></a>
+      </div>
+    </section>
+  </div>
+
+		<footer id="footer" class="bg-black light padding-xlarge" style="background-image: url(images/footer_bg.jpg);background-position: center;background-repeat: repeat-x;">
+			<div class="container">
+				<div class="row">
+					<div class="detail mr-6 mb-4">
+						<ul class="list-unstyled colored-grey text-large">
+							<li>beyond-wallpapers</li>
+							<li>© 2024. Group 8. CSUDH.</li>
+							<li><a target="_blank" href="http://www.beyond-wallpapers.com/" title="final_project">Final_project</a></li>
+						</ul>
+					</div><!--detail-->
+				</div>
+			</div>
+		</footer>
+		
+	</div><!---main-wrapper--->
+
+<script src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
